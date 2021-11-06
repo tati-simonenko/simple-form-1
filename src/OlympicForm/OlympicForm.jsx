@@ -110,7 +110,7 @@ function OlympicForm() {
                     id="agree"
                     type="checkbox"
                     name="agree"
-                    value={form.agree}
+                    checked={form.agree}
                     onChange={onFieldChange}
                 />
             </div>

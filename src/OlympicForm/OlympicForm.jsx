@@ -8,6 +8,10 @@ function OlympicForm() {
         e.preventDefault();
     }
 
+    const onNameChange = (e) => {
+        console.log('onNameChange');
+    }
+
     return (
         <form className="OlympicForm" onSubmit={onOlympicRegister}>
             <div className="OlympicForm-Field">
@@ -16,6 +20,7 @@ function OlympicForm() {
                     className="OlympicForm-Control" 
                     id="name"
                     value={name}
+                    onChange={onNameChange}
                 />
             </div>
             <button className="OlympicForm-Button OlympicForm-Submit">Submit</button>

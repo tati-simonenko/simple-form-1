@@ -5,6 +5,7 @@ const INITIAL_FORM_STATE = {
     password: '',
     language: '',
     level: 'junior',
+    agree: false,
 }
 
 function OlympicForm() {
@@ -101,6 +102,17 @@ function OlympicForm() {
                         onChange={onFieldChange}
                     />
                 </div>
+            </div>
+            <div className="OlympicForm-Field">
+                <label htmlFor="agree">Agree with everything</label>
+                <input 
+                    className="OlympicForm-Control" 
+                    id="agree"
+                    type="checkbox"
+                    name="agree"
+                    value={form.agree}
+                    onChange={onFieldChange}
+                />
             </div>
             <button className="OlympicForm-Button OlympicForm-Submit">Submit</button>
             <button className="OlympicForm-Button OlympicForm-Clear" onClick={onClear}>Clear</button>

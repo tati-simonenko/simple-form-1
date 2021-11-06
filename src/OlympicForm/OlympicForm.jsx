@@ -14,14 +14,9 @@ function OlympicForm() {
         e.preventDefault();
     }
 
-    const onNameChange = (e) => {
-        console.log('onNameChange');
-        setForm(prev => ({ ...prev, name:e.target.value }));
-    }
-
-    const onPasswordChange = (e) => {
-        console.log('onPasswordChange');
-        setForm(prev => ({ ...prev, password:e.target.value }));
+    const onFieldChange = (e) => {
+        console.log('onFieldChange');
+        setForm(prev => ({ ...prev, [e.target.name]:e.target.value }));
     }
 
     return (
@@ -31,8 +26,9 @@ function OlympicForm() {
                 <input 
                     className="OlympicForm-Control" 
                     id="name"
+                    name="name"
                     value={form.name}
-                    onChange={onNameChange}
+                    onChange={onFieldChange}
                 />
             </div>
             <div className="OlympicForm-Field">
@@ -41,8 +37,9 @@ function OlympicForm() {
                     className="OlympicForm-Control" 
                     id="password"
                     type="password"
+                    name="password"
                     value={form.password}
-                    onChange={onPasswordChange}
+                    onChange={onFieldChange}
                 />
             </div>
             <button className="OlympicForm-Button OlympicForm-Submit">Submit</button>

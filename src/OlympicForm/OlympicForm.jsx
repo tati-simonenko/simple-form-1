@@ -5,7 +5,7 @@ function OlympicForm() {
     }
 
     return (
-        <form className="OlympicForm">
+        <form className="OlympicForm" onSubmit={onOlympicRegister}>
             <div className="OlympicForm-Field">
                 <label htmlFor="name">Name</label>
                 <input 
@@ -13,8 +13,8 @@ function OlympicForm() {
                     id="name"
                 />
             </div>
+            <button className="OlympicForm-Button OlympicForm-Submit">Submit</button>
             <button className="OlympicForm-Button OlympicForm-Clear">Clear</button>
-            <button className="OlympicForm-Button OlympicForm-Submit" onClick={onOlympicRegister}>Submit</button>
         </form>
     )
 }

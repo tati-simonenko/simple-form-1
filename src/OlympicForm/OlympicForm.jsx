@@ -6,6 +6,7 @@ const INITIAL_FORM_STATE = {
     language: '',
     level: 'junior',
     agree: false,
+    textarea: '',
 }
 
 function OlympicForm() {
@@ -114,6 +115,16 @@ function OlympicForm() {
                     type="checkbox"
                     name="agree"
                     checked={form.agree}
+                    onChange={onFieldChange}
+                />
+            </div>
+            <div className="OlympicForm-Field">
+                <p><label htmlFor="textarea">Any questions?</label></p>
+                <textarea 
+                    className="OlympicForm-Control" 
+                    id="textarea"
+                    name="textarea"
+                    value={form.textarea}
                     onChange={onFieldChange}
                 />
             </div>

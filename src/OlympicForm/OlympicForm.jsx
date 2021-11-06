@@ -5,11 +5,13 @@ function OlympicForm() {
 
     const onOlympicRegister = (e) => {
         console.log('onOlympicRegister');
+        console.log(name);
         e.preventDefault();
     }
 
     const onNameChange = (e) => {
         console.log('onNameChange');
+        setName(e.target.value);
     }
 
     return (

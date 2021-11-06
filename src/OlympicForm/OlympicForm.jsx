@@ -21,6 +21,10 @@ function OlympicForm() {
         setForm(prev => ({ ...prev, [e.target.name]:e.target.value }));
     }
 
+    const onClear = () => {
+         setForm(INITIAL_FORM_STATE);
+    }
+
     return (
         <form className="OlympicForm" onSubmit={onOlympicRegister}>
             <div className="OlympicForm-Field">
@@ -99,7 +103,7 @@ function OlympicForm() {
                 </div>
             </div>
             <button className="OlympicForm-Button OlympicForm-Submit">Submit</button>
-            <button className="OlympicForm-Button OlympicForm-Clear">Clear</button>
+            <button className="OlympicForm-Button OlympicForm-Clear" onClick={onClear}>Clear</button>
         </form>
     )
 }

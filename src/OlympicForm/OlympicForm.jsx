@@ -4,6 +4,7 @@ const INITIAL_FORM_STATE = {
     name: '',
     password: '',
     language: '',
+    level: 'junior',
 }
 
 function OlympicForm() {
@@ -57,6 +58,45 @@ function OlympicForm() {
                     <option value="typescript">TypeScript</option>
                     <option value="coffeescript">CoffeeScript</option>
                 </select>
+            </div>
+            <div className="OlympicForm-Field">
+                <p>Language proficiency</p>
+                <div>
+                    <label htmlFor="junior">Junior</label>
+                    <input 
+                        className="OlympicForm-Control" 
+                        id="junior"
+                        type="radio"
+                        checked={form.level === 'junior'}
+                        name="level"
+                        value="junior"
+                        onChange={onFieldChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="middle">Middle</label>
+                    <input 
+                        className="OlympicForm-Control" 
+                        id="middle"
+                        type="radio"
+                        checked={form.level === 'middle'}
+                        name="level"
+                        value="middle"
+                        onChange={onFieldChange}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="senior">Senior</label>
+                    <input 
+                        className="OlympicForm-Control" 
+                        id="senior"
+                        type="radio"
+                        checked={form.level === 'senior'}
+                        name="level"
+                        value="senior"
+                        onChange={onFieldChange}
+                    />
+                </div>
             </div>
             <button className="OlympicForm-Button OlympicForm-Submit">Submit</button>
             <button className="OlympicForm-Button OlympicForm-Clear">Clear</button>

@@ -1,4 +1,9 @@
 function OlympicForm() {
+    const onOlympicRegister = (e) => {
+        console.log('onOlympicRegister');
+        e.preventDefault();
+    }
+
     return (
         <form className="OlympicForm">
             <div className="OlympicForm-Field">
@@ -8,8 +13,8 @@ function OlympicForm() {
                     id="name"
                 />
             </div>
-            <button className="OlympicForm-Button OlympicForm-Submit">Submit</button>
             <button className="OlympicForm-Button OlympicForm-Clear">Clear</button>
+            <button className="OlympicForm-Button OlympicForm-Submit" onClick={onOlympicRegister}>Submit</button>
         </form>
     )
 }

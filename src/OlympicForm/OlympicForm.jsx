@@ -2,16 +2,23 @@ import { useState } from 'react';
 
 function OlympicForm() {
     const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
 
     const onOlympicRegister = (e) => {
         console.log('onOlympicRegister');
         console.log(name);
+        console.log(password);
         e.preventDefault();
     }
 
     const onNameChange = (e) => {
         console.log('onNameChange');
         setName(e.target.value);
+    }
+
+    const onPasswordChange = (e) => {
+        console.log('onPasswordChange');
+        setPassword(e.target.value);
     }
 
     return (
@@ -23,6 +30,16 @@ function OlympicForm() {
                     id="name"
                     value={name}
                     onChange={onNameChange}
+                />
+            </div>
+            <div className="OlympicForm-Field">
+                <label htmlFor="password">Password</label>
+                <input 
+                    className="OlympicForm-Control" 
+                    id="password"
+                    type="password"
+                    value={password}
+                    onChange={onPasswordChange}
                 />
             </div>
             <button className="OlympicForm-Button OlympicForm-Submit">Submit</button>

@@ -19,7 +19,10 @@ function OlympicForm() {
 
     const onFieldChange = (e) => {
         console.log('onFieldChange');
-        setForm(prev => ({ ...prev, [e.target.name]:e.target.value }));
+        setForm(prev => ({ 
+            ...prev, 
+            [e.target.name]:e.target.type === 'checkbox' ? e.target.checked : e.target.value 
+        }));
     }
 
     const onClear = () => {

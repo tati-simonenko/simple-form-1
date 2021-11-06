@@ -3,6 +3,7 @@ import { useState } from 'react';
 const INITIAL_FORM_STATE = {
     name: '',
     password: '',
+    language: '',
 }
 
 function OlympicForm() {
@@ -41,6 +42,21 @@ function OlympicForm() {
                     value={form.password}
                     onChange={onFieldChange}
                 />
+            </div>
+            <div className="OlympicForm-Field">
+                <label htmlFor="language">Language</label>
+                <select 
+                    className="OlympicForm-Control"
+                    name="language"
+                    id="language"
+                    value={form.language}
+                    onChange={onFieldChange}
+                >
+                    <option value="">Choose ...</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="typescript">TypeScript</option>
+                    <option value="coffeescript">CoffeeScript</option>
+                </select>
             </div>
             <button className="OlympicForm-Button OlympicForm-Submit">Submit</button>
             <button className="OlympicForm-Button OlympicForm-Clear">Clear</button>

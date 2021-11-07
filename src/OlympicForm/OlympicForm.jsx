@@ -20,9 +20,12 @@ function OlympicForm() {
 
     const onFieldChange = (e) => {
         console.log('onFieldChange');
+
+        const { target } = e;
+
         setForm(prev => ({ 
             ...prev, 
-            [e.target.name]:e.target.type === 'checkbox' ? e.target.checked : e.target.value 
+            [e.target.name]:target.type === 'checkbox' ? target.checked : target.value 
         }));
     }
 

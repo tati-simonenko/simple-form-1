@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useRef } from 'react';
 
 const INITIAL_FORM_STATE = {
     name: '',
@@ -7,15 +8,36 @@ const INITIAL_FORM_STATE = {
     level: 'junior',
     agree: false,
     textarea: '',
+    file: undefined,
 }
 
 function OlympicForm() {
     const [form, setForm] = useState(INITIAL_FORM_STATE);
+    const avatarRef = useRef(null);
 
     const onOlympicRegister = (e) => {
         console.log('onOlympicRegister');
         console.log(form);
         e.preventDefault();
+    }
+
+    const onAvatarLoad = (e) => {
+        const target = e.target;
+
+        const file = target.files && target.files[0];
+
+        if (!file) return;
+
+        const reader = new FileReader();
+
+        reader.onload = function(e) {
+            const image = e.target.result;
+            avatarRef.current.src = image;
+            setForm(prev => ({ ...prev, file}));
+        }
+
+        reader.readAsDataURL(file);
+
     }
 
     const onFieldChange = (e) => {
@@ -35,6 +57,17 @@ function OlympicForm() {
 
     return (
         <form className="OlympicForm" onSubmit={onOlympicRegister}>
+            <div className="OlympicForm-Field">
+                <img src="" alt="Your avatar" ref={avatarRef} />
+                <label htmlFor="avatar">Avatar</label>
+                <input 
+                    className="OlympicForm-Control" 
+                    id="avatar"
+                    type="file"
+                    name="avatar"
+                    onChange={onAvatarLoad}
+                />
+            </div>
             <div className="OlympicForm-Field">
                 <label htmlFor="name">Name</label>
                 <input 
